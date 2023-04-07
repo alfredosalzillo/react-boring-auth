@@ -1,7 +1,7 @@
 {
   "name": "react-boring-auth",
   "version": "0.0.1",
-  "description": "",
+  "description": "A boring react auth helper library",
   "type": "module",
   "types": "./dist/",
   "source": "src/index.ts",
@@ -22,9 +22,17 @@
   "scripts": {
     "dev": "microbundle watch  --jsx React.createElement --tsconfig tsconfig.json",
     "build": "microbundle --jsx React.createElement --tsconfig tsconfig.json",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "Alfredo Salzillo <noctisbels@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfredosalzillo/react-boring-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alfredosalzillo/react-boring-auth/issues"
+  },
+  "homepage": "https://github.com/alfredosalzillo/react-boring-auth#readme",
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.0.0"
