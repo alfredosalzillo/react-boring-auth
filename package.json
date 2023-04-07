@@ -1,6 +1,6 @@
 {
   "name": "react-boring-auth",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A boring react auth helper library",
   "type": "module",
   "types": "./dist/",
