@@ -4,7 +4,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import mit, { Emitter } from "./mit";
+import mett, { Emitter } from "boring-event-emitter";
 
 export type AuthService<AuthUser, SignInOptions, SignUpOptions> = {
   init(): Promise<void>
@@ -49,12 +49,13 @@ export const createAuth = <
 
   const AuthContext = React.createContext<AuthContextValue>(null)
   const AuthProvider = ({ children, initialValue }: AuthProviderProps<Service>) => {
-    const stateChange = useMemo(() => mit<AuthState<AuthUser>>({
+    const stateChange = useMemo(() => mett<AuthState<AuthUser>>({
       initialValue: {
         user: initialValue,
         logged: !!initialValue,
         ready: !(initialValue === undefined)
-      }
+      },
+      replayLast: true,
     }), [])
 
     useEffect(() => {
@@ -129,7 +130,7 @@ export const createAuth = <
     const { stateChange } = useAuth()
     const [state, setState] = useState(stateChange.lastEmittedValue)
     useEffect(() => {
-      return stateChange.subscribe((value) => setState(value))
+      return stateChange.listen((value) => setState(value))
     }, [stateChange, setState])
     return state
   }
