@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A boring react auth helper library",
   "type": "module",
-  "types": "./dist/",
+  "types": "dist/index.d.ts",
   "source": "src/index.ts",
   "exports": {
     ".": {
